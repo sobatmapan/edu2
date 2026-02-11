@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ELVVAWS — Pusat Arsip Referensi & Catatan Observasi</title>
+  <meta name="description" content="ELVVAWS adalah portal ringkas untuk arsip referensi dan catatan observasi berbasis data agar mudah ditelusuri dan dicek silang." />
+  <link rel="canonical" href="https://elvvaws.org/" />
+
+  <!-- Fonts (beda) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0b1220',
+            steel: '#1f2a44',
+            fog: '#f3f6fb',
+            line: '#dbe3ef',
+            accent: '#0f4c81',
+            accent2: '#0ea5a8'
+          },
+          fontFamily: {
+            sans: ['Manrope','system-ui','sans-serif'],
+            serif: ['Spectral','serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root{
+      --bg:#f3f6fb;
+      --card:#ffffff;
+      --line:#dbe3ef;
+      --ink:#0b1220;
+      --accent:#0f4c81;
+      --accent2:#0ea5a8;
+    }
+    body{
+      background:
+        radial-gradient(900px 450px at 15% -10%, rgba(15,76,129,.18), transparent 60%),
+        radial-gradient(900px 450px at 85% -5%, rgba(14,165,168,.14), transparent 60%),
+        var(--bg);
+      color: var(--ink);
+    }
+    .shell{ max-width: 1100px; margin: 0 auto; }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(11,18,32,.06);
+    }
+    .topbar{
+      background: rgba(243,246,251,.75);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.65));
+      border: 1px solid var(--line);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .25px;
+      color: #1f2a44;
+    }
+    .nav a{
+      font-weight: 800;
+      color:#1f2a44;
+      text-decoration:none;
+    }
+    .nav a:hover{ text-decoration: underline; text-underline-offset: 4px; }
+
+    .cta{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius: 12px;
+      font-weight: 900;
+      color:#fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 12px 24px rgba(15,76,129,.18);
+      text-decoration:none;
+    }
+    .cta:hover{ text-decoration: underline; text-underline-offset: 3px; }
+
+    blockquote{
+      margin: 14px 0;
+      padding: 12px 14px;
+      border-left: 5px solid var(--accent);
+      background: rgba(15,76,129,.08);
+      border-radius: 14px;
+      font-weight: 700;
+    }
+
+    .ref a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      font-weight: 800;
+      color: #0b1220;
+      text-decoration:none;
+      box-shadow: 0 10px 20px rgba(11,18,32,.04);
+    }
+    .ref a span{ opacity:.65; font-weight:900; }
+    .ref a:hover{
+      border-color: rgba(15,76,129,.35);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"ELVVAWS",
+    "url":"https://elvvaws.org/",
+    "description":"Portal arsip referensi dan catatan observasi berbasis data."
+  }
+  </script>
+</head>
+
+<body class="font-sans">
+
+  <!-- Topbar -->
+  <div class="topbar sticky top-0 z-50">
+    <div class="shell px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="pill">ELVVAWS • EDITORIAL NOTES</span>
+        <span class="hidden sm:inline text-xs font-extrabold text-slate-500">elvvaws.org</span>
+      </div>
+      <nav class="nav flex gap-5 text-sm">
+        <a href="#ringkasan">Ringkasan</a>
+        <a href="#metode">Metode</a>
+        <a href="#referensi">Referensi</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="shell px-6 pt-12 pb-10">
+    <div class="card p-7 md:p-10">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="font-serif text-3xl md:text-5xl font-extrabold leading-tight">
+            ELVVAWS<br>
+            <span class="text-slate-700">Arsip Referensi & Catatan Observasi</span>
+          </h1>
+          <p class="mt-4 text-slate-600 text-sm md:text-base max-w-xl">
+            Halaman ini disusun untuk membantu penelusuran informasi: menyimpan rujukan,
+            membuat ringkasan singkat, dan memudahkan cek silang.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a class="cta" href="#referensi">Lihat Referensi</a>
+            <a class="cta" style="background:linear-gradient(135deg,#1f2a44,#0f4c81); box-shadow:0 12px 24px rgba(31,42,68,.16)" href="#metode">
+              Baca Metode
+            </a>
+          </div>
+        </div>
+
+        <!-- SVG berbeda -->
+        <div class="md:justify-self-end">
+          <svg viewBox="0 0 520 360" class="w-full max-w-md mx-auto" aria-label="Ilustrasi arsip editorial">
+            <defs>
+              <linearGradient id="h1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#0f4c81" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#0ea5a8" stop-opacity="0.95"/>
+              </linearGradient>
+            </defs>
+            <rect x="52" y="62" width="416" height="236" rx="22" fill="#ffffff" stroke="#dbe3ef"/>
+            <rect x="78" y="92" width="280" height="22" rx="11" fill="url(#h1)" opacity="0.22"/>
+            <rect x="78" y="132" width="240" height="12" rx="6" fill="#0b1220" opacity="0.16"/>
+            <rect x="78" y="154" width="310" height="12" rx="6" fill="#0b1220" opacity="0.12"/>
+            <rect x="78" y="176" width="285" height="12" rx="6" fill="#0b1220" opacity="0.10"/>
+
+            <rect x="78" y="206" width="132" height="70" rx="16" fill="#0f4c81" opacity="0.10"/>
+            <rect x="220" y="206" width="248" height="70" rx="16" fill="#0ea5a8" opacity="0.08"/>
+
+            <circle cx="132" cy="241" r="18" fill="#0f4c81" opacity="0.18"/>
+            <circle cx="270" cy="241" r="18" fill="#0ea5a8" opacity="0.18"/>
+            <circle cx="320" cy="241" r="18" fill="#0ea5a8" opacity="0.14"/>
+            <circle cx="370" cy="241" r="18" fill="#0ea5a8" opacity="0.10"/>
+
+            <rect x="52" y="290" width="416" height="12" rx="6" fill="#dbe3ef" opacity="0.85"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell px-6 pb-16">
+
+    <section id="ringkasan" class="card p-7 md:p-10">
+      <h2 class="font-serif text-2xl md:text-3xl font-extrabold">Ringkasan</h2>
+      <p class="mt-4 text-slate-600 text-sm md:text-base">
+        Tujuan utama ELVVAWS adalah membuat proses penelusuran lebih rapi: rujukan tersimpan,
+        ringkasan tertulis, dan pembanding tersedia. Ini membantu konsistensi saat melakukan observasi.
+      </p>
+      <blockquote>
+        <p>Catatan yang baik bukan yang paling panjang, tapi yang paling mudah diverifikasi.</p>
+      </blockquote>
+    </section>
+
+    <section id="metode" class="mt-12 card p-7 md:p-10">
+      <h2 class="font-serif text-2xl md:text-3xl font-extrabold">Metode Ringkas</h2>
+      <div class="mt-6 grid md:grid-cols-3 gap-4 text-sm">
+        <div class="p-5 rounded-2xl border border-line bg-white">
+          <div class="font-extrabold">Simpan</div>
+          <p class="text-slate-600 mt-2">Kumpulkan rujukan yang sering dipakai agar cepat diakses.</p>
+        </div>
+        <div class="p-5 rounded-2xl border border-line bg-white">
+          <div class="font-extrabold">Bandingkan</div>
+          <p class="text-slate-600 mt-2">Lakukan cek silang minimal dua sumber untuk pembanding.</p>
+        </div>
+        <div class="p-5 rounded-2xl border border-line bg-white">
+          <div class="font-extrabold">Catat</div>
+          <p class="text-slate-600 mt-2">Tulis ringkasan harian/mingguan agar mudah ditelusuri ulang.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Semua link kamu dimasukkan di sini -->
+    <section id="referensi" class="mt-12">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+        <h2 class="font-serif text-2xl md:text-3xl font-extrabold">Daftar Referensi</h2>
+        <div class="text-xs text-slate-500 font-bold">Koleksi rujukan untuk arsip & pembanding</div>
+      </div>
+
+      <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 ref text-sm">
+        <li><a href="https://datahklotto.us/" target="_blank" rel="noopener">Data HK Lotto <span>↗</span></a></li>
+        <li><a href="http://178.128.52.7/" target="_blank" rel="noopener">Data SDY Lotto <span>↗</span></a></li>
+        <li><a href="https://pafiairseruk.org/" target="_blank" rel="noopener">Data HK <span>↗</span></a></li>
+        <li><a href="http://178.128.89.94/" target="_blank" rel="noopener">Data SGP <span>↗</span></a></li>
+        <li><a href="https://pafitanglad.org/" target="_blank" rel="noopener">Data SDY <span>↗</span></a></li>
+        <li><a href="https://lamarsalaplayadegandia.com/" target="_blank" rel="noopener">Data HK <span>↗</span></a></li>
+        <li><a href="http://159.223.35.146/" target="_blank" rel="noopener">Data SDY Lotto <span>↗</span></a></li>
+        <li><a href="https://wholesalejerseys4sale.com/" target="_blank" rel="noopener">Prediksi Keluaran <span>↗</span></a></li>
+        <li><a href="https://pafibenermeriahkabupaten.org/" target="_blank" rel="noopener">Prediksi Jitu <span>↗</span></a></li>
+        <li><a href="http://178.128.116.128/" target="_blank" rel="noopener">Prediksi SDY <span>↗</span></a></li>
+        <li><a href="https://prediksihkpools.net/" target="_blank" rel="noopener">Prediksi HK <span>↗</span></a></li>
+        <li><a href="http://178.128.215.158/" target="_blank" rel="noopener">Angkanet <span>↗</span></a></li>
+        <li><a href="http://178.128.21.45/" target="_blank" rel="noopener">Angkanet Result <span>↗</span></a></li>
+        <li><a href="https://pafipcgunungkidulkab.org/" target="_blank" rel="noopener">Data HK 6D <span>↗</span></a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="shell px-6 py-10 text-center text-xs text-slate-500 font-bold">
+      © 2026 elvvaws.org — Editorial Notes & Reference Archive
+    </div>
+  </footer>
+
+</body>
+</html>
